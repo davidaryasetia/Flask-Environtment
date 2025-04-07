@@ -52,3 +52,7 @@ def projects():
 @app.route('/about')
 def about(): 
     return 'This is an about page'
+
+@app.route('/contact')
+def contact(): 
+    return 'this is an contact page'
