@@ -1,0 +1,10 @@
+{
+    "postgres" : {
+        "host" : "projectdev.site", 
+        "port" : 5432, 
+        "database" : "db_flask", 
+        "user" : "postgres", 
+        "password" : "Okokokdalll1", 
+        "db_table" : "flaskapptable"
+    }
+}
