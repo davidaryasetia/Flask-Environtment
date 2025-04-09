@@ -153,3 +153,10 @@ def login_account():
             error = 'Invalid username/password'
 
     return render_template('login.html', error=error)
+
+@app.route('/checking_keyboard', methods=['GET', 'POST'])
+def checking_keyboard():
+    if request.method == 'POST':
+        return 'This is method of get'
+    else : 
+        return 'This is method of post'
