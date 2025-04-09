@@ -142,14 +142,15 @@ def hello(name=None):
 
 
 # The request object section => method GET and POST
-@app.route('/login_account')
+@app.route('/login', method=['GET', 'POST'])
 def login_account(): 
-    error = None 
-    if request.method == 'POST': 
-        if valid_login(request.form['username'], 
-                       request.form['password']): 
-            return log_the_user_in(request_form['username'])
+    error = None
+    if request.method == 'POST':
+        if valid.login(
+            request.form['username'], 
+            request.form['password']
+        ): 
+            return log_the_user_in(request.form['username'])
         else: 
             error = 'Invalid username/password'
-
-    return render_template('login.html', error=error)
+            return render_template('login.html', error=error)
