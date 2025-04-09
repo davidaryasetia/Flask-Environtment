@@ -5,10 +5,23 @@ from flask import Flask, request
 from flask_restx import Resource, Api 
 from requests import put, get # -> This is for request library
 
+# Argument Parsing -> while flask provide easy access to request data -> it's still pain to validate form data
+# Flask-RestX has built-in support for request data validation using library
+from flask_restx import reqparse
+
+
+
 app = Flask(__name__)
 api = Api(app)
 
 todos = {}
+
+# @api.route('/todos')
+# class ParserClass(resource): 
+#     def get(self): 
+#         parser = reqparse.RequestParser()
+#         parser.add_argument('rate', type=int, help='Rate to charge for this resource')
+#         args = parser.parser_args()
 
 @api.route('/<string:todo_id>')
 class TestApi(Resource): 
@@ -41,10 +54,15 @@ class TestApi3(Resource):
 Endpoint -> many times in API resources will have multiple urlS
 You can pass multiple URLs to the add_resource() or route() decorator
 '''
-# @app.route('/testing', '/multi')
-# class multiple_url(Resource): 
-#     def get(self): 
-#         return {'key api' : 'value API'}
+@api.route('/testing', '/multi')
+class multiple_url(Resource): 
+    def multiple_route():
+        return "Multiple resources"
+    
+# You can also match parts of the path as variable to your resource method
+@api.route('/todo/<int:todo_id>', endpoint='todo_application')
+class MatchPartVariable(Resource): 
+    pass
 
 if __name__ == '__main__':
     app.run(debug=True)
