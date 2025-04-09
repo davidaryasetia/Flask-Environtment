@@ -153,9 +153,6 @@ def login_account():
             return log_the_user_in(request.form['username'])
         else: 
             error = 'Invalid username/password'
-<<<<<<< HEAD:fundamentals.py
-            return render_template('login.html', error=error)
-=======
 
     return render_template('login.html', error=error)
 
@@ -165,4 +162,3 @@ def checking_keyboard():
         return 'This is method of get'
     else : 
         return 'This is method of post'
->>>>>>> 31b1ee208dae22a0e6d6a01ce6235d22fb508ff2:fundamentals_flask/fundamentals.py
